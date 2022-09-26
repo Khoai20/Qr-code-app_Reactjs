@@ -35,7 +35,7 @@ const PageLayout = () => {
   };
   return (
     <Card
-      sx={{ width: "50%", margin: "5rem auto !important", maxWidth: "600px" }}
+      sx={{ width: "50%", margin: "2rem auto !important", maxWidth: "600px" }}
     >
       <Tabs
         sx={{ background: "#4473ff" }}
