@@ -12,40 +12,42 @@ const ScannerScreen = () => {
     <Box sx={{ position: "relative" }}>
       <Grid container>
         <Grid item xs={12}>
-          <Typography style={{ fontWeight: 600 }} variant="h6">
-            QR Code Scanner or Reader
-          </Typography>
+          <Grid container>
+            <Grid item xs={11}>
+              <Typography style={{ fontWeight: 600 }} variant="h6">
+                QR Code Scanner or Reader
+              </Typography>
+            </Grid>
+            <Grid item xs={1}>
+              {!upload && (
+                <RadioButtonCheckedIcon
+                  onClick={() => setUpload(true)}
+                  sx={{
+                    color: "red",
+                    position: "absolute",
+                    right: "2%",
+                    top: "1%",
+                    "&:hover": { cursor: "pointer", color: "#000000" },
+                  }}
+                />
+              )}
+              {upload && (
+                <CameraAltIcon
+                  onClick={() => setUpload(false)}
+                  sx={{
+                    position: "absolute",
+                    right: "0",
+                    top: "1.6%",
+                    "&:hover": { cursor: "pointer", color: "red" },
+                  }}
+                />
+              )}
+            </Grid>
+          </Grid>
         </Grid>
         <Grid item xs={12}>
-          {!upload && (
-            <>
-              <RadioButtonCheckedIcon
-                onClick={() => setUpload(true)}
-                sx={{
-                  color: "red",
-                  position: "absolute",
-                  right: "0",
-                  top: "1%",
-                  "&:hover": { cursor: "pointer", color: "#000000" },
-                }}
-              />
-              <CameraScan />
-            </>
-          )}
-          {upload && (
-            <>
-              <CameraAltIcon
-                onClick={() => setUpload(false)}
-                sx={{
-                  position: "absolute",
-                  right: "0",
-                  top: "1.6%",
-                  "&:hover": { cursor: "pointer", color: "red" },
-                }}
-              />
-              <UploadQr />
-            </>
-          )}
+          {!upload && <CameraScan />}
+          {upload && <UploadQr />}
         </Grid>
       </Grid>
     </Box>

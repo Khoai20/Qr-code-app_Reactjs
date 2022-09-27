@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { Box, Alert, Snackbar, Stack, TextField } from "@mui/material";
 import axios from "axios";
 import ContentCopyIcon from "@mui/icons-material/ContentCopy";
@@ -6,12 +6,7 @@ import ArrowUpwardIcon from "@mui/icons-material/ArrowUpward";
 
 const UploadQr = () => {
   const [textRender, setTextRender] = useState("");
-  const [uploadImage, setUploadImage] = useState();
   const [noti, setNoti] = useState(false);
-
-  useEffect(() => {
-    console.log(uploadImage);
-  }, [uploadImage]);
 
   const handleCoppy = () => {
     navigator.clipboard.writeText(textRender).then(setNoti(true));
@@ -83,7 +78,7 @@ const UploadQr = () => {
           <img
             style={{
               position: "absolute",
-              top: "9%",
+              top: "13%",
               opacity: 0.4,
               height: "208px",
               objectFit: "fill",
