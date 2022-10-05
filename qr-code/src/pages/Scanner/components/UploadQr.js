@@ -24,9 +24,9 @@ const UploadQr = () => {
     let formData = new FormData();
     formData.append("file", file);
     await axios
-      .post("http://api.qrserver.com/v1/read-qr-code/", formData, headers: {
+      .post("http://api.qrserver.com/v1/read-qr-code/", formData, {headers: {
         'Access-Control-Allow-Origin': '*',
-      })
+      }})
       .then((res) => setTextRender(res.data[0]?.symbol[0]?.data));
   };
 
